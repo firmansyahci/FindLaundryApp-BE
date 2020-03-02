@@ -19,7 +19,6 @@ module.exports = {
             address,
             phone,
             role: 1,
-            image: process.env.URL_IMG + `uploads/user/${req.file.filename}`
         }
         const salt = genSaltSync(10)
         data.password = hashSync(data.password, salt)
@@ -32,12 +31,12 @@ module.exports = {
                 address,
                 phone,
                 role: 1,
-                image: process.env.URL_IMG + `uploads/user/${req.file.filename}`
             }
             miscHelper.response(res, data, 200)
         })
             .catch(err => {
                 miscHelper.response(res, {}, 201, err)
+                console.log(err)
             })
     },
     login: (req, res) => {

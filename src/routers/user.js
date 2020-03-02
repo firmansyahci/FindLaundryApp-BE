@@ -36,15 +36,7 @@ const upload = multer({
 }).single('image')
 
 Router.get('/', UserController.getUser)
-Router.post('/register', (req, res, next)=>{
-    upload(req, res, err => {
-        if(err){
-            res.send(err)
-        }else{
-            next()
-        }
-    })
-}, UserController.register)
+Router.post('/register', UserController.register)
 Router.post('/login', UserController.login)
 
 module.exports = Router
