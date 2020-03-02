@@ -63,12 +63,15 @@ module.exports = {
             } else {
                 return res.json({
                     success: 0,
-                    data: 'Invalid Password!!'
+                    message: 'Invalid Password!!'
                 })
             }
         })
             .catch(err => {
-                miscHelper.response(res, {}, 201, 'Invalid email, Please Register First!!!')
+                return res.json({
+                    success: 0, 
+                    message: 'Invalid email, Please Register First!!!'
+                })
                 
             })
     }
