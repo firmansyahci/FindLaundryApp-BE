@@ -117,7 +117,7 @@ module.exports = {
   joinData: (id) => {
     return new Promise((resolve, reject) => {
       connection.query(
-        "SELECT data_laundry.*,features_laundry.name as feature,features_laundry.description,features_laundry.price,features_laundry.category FROM data_laundry join features_laundry on features_laundry.id_laundry=data_laundry.id WHERE data_laundry.id= ?",
+        "SELECT data_laundry.id,features_laundry.name as feature,features_laundry.price,features_laundry.category,features_laundry.rules FROM data_laundry join features_laundry on features_laundry.id_laundry=data_laundry.id WHERE data_laundry.id= ?",
         id,
         (err, result) => {
           if (!err) {
